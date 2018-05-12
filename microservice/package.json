@@ -1,0 +1,14 @@
+{
+  "name": "microservice",
+  "version": "1.0.0",
+  "description": "Simple HTTP microservice",
+  "main": "src/index.js",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "scripts": {
+  },
+  "devDependencies": {
+  }
+}
