@@ -15,7 +15,7 @@ exports.handler = (event, context, callback) => {
             }
         };
 
-        documentClient.delete(params, function(err, data) {
+        documentClient.delete(params, (err, data) => {
             if (err) console.log(err);
             else {
                 callback(null, {

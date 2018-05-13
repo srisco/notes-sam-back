@@ -12,15 +12,13 @@ exports.handler = (event, context, callback) => {
           TableName : 'notes',
       };
 
-      response = {
-          'statusCode': 200
-      }
-
       documentClient.scan(params, (err, data) => {
           if (err) console.log(err);
           else {
-              response.body = JSON.stringify(data.Items);
-              callback(null, response)
+              callback(null, {
+                  statusCode: 200,
+                  body: JSON.stringify(data.Items)
+              })
           }
       });
     }

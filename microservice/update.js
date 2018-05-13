@@ -22,7 +22,7 @@ exports.handler = (event, context, callback) => {
             }
         };
 
-        documentClient.update(params, function(err, data) {
+        documentClient.update(params, (err, data) => {
             if (err) console.log(err);
             else {
                 callback(null, {

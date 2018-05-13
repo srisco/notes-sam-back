@@ -5,10 +5,7 @@
   "main": "src/index.js",
   "author": "Sebas",
   "license": "MIT",
-  "dependencies": {
-  },
-  "scripts": {
-  },
-  "devDependencies": {
-  }
+  "dependencies": {},
+  "scripts": {},
+  "devDependencies": {}
 }

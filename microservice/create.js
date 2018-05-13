@@ -13,14 +13,12 @@ exports.handler = (event, context, callback) => {
             Item: JSON.parse(event.body)
         };
 
-        response = {
-            'statusCode': 200
-        }
-
-        documentClient.put(params, function(err, data) {
+        documentClient.put(params, (err, data) => {
             if (err) console.log(err);
             else {
-                callback(null, response);
+                callback(null, {
+                    statusCode: 200
+                });
             }
         });
     }
