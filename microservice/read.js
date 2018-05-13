@@ -1,20 +1,30 @@
+'use strict';
 
-let response;
+var AWS = require('aws-sdk');
+var documentClient = new AWS.DynamoDB.DocumentClient({
+    endpoint: 'http://dynamodb:8000'
+});
+var params, response;
 
-
-exports.handler = async (event, context, callback) => {
+exports.handler = (event, context, callback) => {
     try {
-        response = {
-            'statusCode': 200,
-            'body': JSON.stringify({
-                message: 'read works!!'
-            })
-        }
+      params = {
+          TableName : 'notes',
+      };
+
+      response = {
+          'statusCode': 200
+      }
+
+      documentClient.scan(params, (err, data) => {
+          if (err) console.log(err);
+          else {
+              response.body = JSON.stringify(data.Items);
+              callback(null, response)
+          }
+      });
     }
     catch (err) {
-        console.log(err);
         callback(err, null);
     }
-
-    callback(null, response)
 };
