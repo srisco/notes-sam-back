@@ -4,7 +4,7 @@ var AWS = require('aws-sdk');
 var documentClient = new AWS.DynamoDB.DocumentClient({
     endpoint: 'http://dynamodb:8000'
 });
-var params, response;
+var params;
 
 exports.handler = (event, context, callback) => {
     try {
